@@ -1,0 +1,10 @@
+.container {
+    position: relative;
+    width: auto;
+}
+
+.button {
+    position: absolute;
+    z-index: 1;
+    right: 10px;
+}

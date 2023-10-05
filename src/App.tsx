@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Provider } from 'react-redux';
 import './App.css';
+import FormContainer from './containers/FormContainer';
+import store from './store';
+
+import ListContainer from './containers/ListContainer';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Provider store={store}>
+            <div className="App">
+                <div className="flex justify-center mt-6">
+                    <h1 className="text-3xl font-bold underline">test</h1>
+                </div>
+
+                <FormContainer />
+                <ListContainer />
+            </div>
+        </Provider>
+    );
 }
 
 export default App;
