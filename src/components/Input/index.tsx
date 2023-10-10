@@ -13,8 +13,8 @@ function Input(props: Props) {
         label, value, onChange, name,
     } = props;
     return (
-        <div className="flex items-center mb-3">
-            <h1 className="mr-3">{label}</h1>
+        <div className="flex items-center mb-3 mr-5">
+            <h1 className="mr-2 label">{label}</h1>
             <input
                 type="number"
                 value={value}

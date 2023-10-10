@@ -1,21 +1,24 @@
-type TPayload = {
-    up: string,
-    down: string,
-    heartRate: string
-}
+import { TData, TLine } from '../types';
+
 type TAddDataType = {
+  type: string;
+  payload: TLine;
+};
+type TInitData = {
     type: string;
-    payload: TPayload
+    payload: TData
 }
-export function addData(payload: TPayload): TAddDataType {
+export const ADD_DATA: 'ADD_DATA' = 'ADD_DATA';
+export const INIT: 'INIT' = 'INIT';
+export function addData(payload: TLine): TAddDataType {
     return {
-        type: 'ADD_DATA',
+        type: ADD_DATA,
         payload,
     };
 }
-export function initData(payload: TPayload): TAddDataType {
+export function initData(payload: TData): TInitData {
     return {
-        type: 'ADD_DATA',
+        type: INIT,
         payload,
     };
 }

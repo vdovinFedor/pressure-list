@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './FormComponent.css';
 import Input from '../Input';
 import { TLine } from '../../redusers/lines';
+import Button from '../Button';
 
 type Props = {
   subAction: (arg0: TLine) => void;
@@ -22,7 +23,7 @@ function FormComponent(props: Props) {
     };
     const reset = () => handleChangeInput(defaultValues);
 
-    const handleSubmit = (event: any) => {
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         subAction(inputs);
         reset();
@@ -51,7 +52,7 @@ function FormComponent(props: Props) {
                     />
                 </div>
 
-                <button type="submit">OK</button>
+                <Button onClick={handleSubmit} label="OK" />
             </form>
         </div>
     );

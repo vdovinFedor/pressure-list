@@ -1,5 +1,3 @@
-// @flow
-
 import { connect } from 'react-redux';
 import { addData } from '../../actions/pressureListActions';
 import FormComponent from '../../components/FormComponent';
