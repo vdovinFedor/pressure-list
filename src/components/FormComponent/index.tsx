@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './FormComponent.css';
 import Input from '../Input';
-import { TLine } from '../../redusers/lines';
+import { type TLine } from '../../types';
 import Button from '../Button';
 
 type Props = {
@@ -12,6 +12,8 @@ function FormComponent(props: Props) {
         up: '',
         down: '',
         heartRate: '',
+        date: new Date().toDateString(),
+        lineId: '',
     };
     const { subAction } = props;
     const [inputs, handleChangeInput] = useState(defaultValues);
@@ -52,7 +54,7 @@ function FormComponent(props: Props) {
                     />
                 </div>
 
-                <Button onClick={handleSubmit} label="OK" />
+                <Button onClick={handleSubmit} label="OK" key={crypto.randomUUID()} />
             </form>
         </div>
     );

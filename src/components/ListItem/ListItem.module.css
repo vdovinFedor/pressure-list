@@ -1,0 +1,12 @@
+.date {
+    border-bottom: 1px solid black;
+    padding: 8px;
+}
+.rightSide {
+    border-bottom: 1px solid black;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+

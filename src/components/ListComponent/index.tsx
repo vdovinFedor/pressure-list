@@ -1,21 +1,23 @@
 import React, { useEffect } from 'react';
-import { type TLine } from '../../redusers/lines';
 import mockData from '../../consts/mockData';
-import { TData } from '../../types';
+import styles from './ListComponent.module.css';
+import { type TData, type TLine } from '../../types';
+import ListItem from '../ListItem';
 
 type Props = {
   lineses: Array<TLine>;
   init: (payload: TData) => void;
+  onDelete: (payload: string) => void;
 };
 function FormComponent(props: Props) {
     // const { data, isLoading, isError } = useQuery('fetchData', fetchData);
-    const { lineses, init } = props;
+    const { lineses, init, onDelete } = props;
 
     useEffect(() => {
         setTimeout(() => {
             init(mockData);
             return mockData;
-        }, 2000);
+        }, 1000);
     }, []);
 
     /* async function fetchData() {
@@ -30,23 +32,32 @@ function FormComponent(props: Props) {
 
     if (!lineses.length) {
         return (
-            <p>Ytewtwetw</p>
+            <p>No Data</p>
         );
     }
-    const getValue = (v: string) => (v || '-');
-
-    const renderLines = () => lineses.map((l) => (
-        <div key={crypto.randomUUID()} className="flex mt-6 justify-center">
-            <div>{getValue(l.up)}</div>
-            <div>{getValue(l.down)}</div>
-            <div>{getValue(l.heartRate)}</div>
-        </div>
-    ));
 
     return (
-        <div>
-            <div>{renderLines()}</div>
+        <div className="flex justify-center mt-6">
+            <div className={styles.tableContainer}>
+                <div className={styles.container}>
+                    <div className={styles.headerLine}>Дата</div>
+                    <div className={styles.headerLine}>Результат</div>
+
+                    {lineses.map((l: TLine) => (
+                        <ListItem
+                            onDelete={onDelete}
+                            key={l.lineId}
+                            lineId={l.lineId}
+                            up={l.up}
+                            down={l.down}
+                            heartRate={l.heartRate}
+                            date={l.date}
+                        />
+                    ))}
+                </div>
+            </div>
         </div>
+
     );
 }
 
