@@ -5,7 +5,7 @@ import { type TLine } from '../../types';
 import Button from '../Button';
 
 type Props = {
-  subAction: (arg0: TLine) => void;
+  subAction: (_: TLine) => void;
 };
 function FormComponent(props: Props) {
     const defaultValues = {
@@ -18,7 +18,7 @@ function FormComponent(props: Props) {
     const { subAction } = props;
     const [inputs, handleChangeInput] = useState(defaultValues);
 
-    const handleChange = (event: any) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name } = event.target;
         const { value } = event.target;
         handleChangeInput((v) => ({ ...v, [name]: value }));
@@ -31,13 +31,13 @@ function FormComponent(props: Props) {
         reset();
     };
     return (
-        <div className="flex justify-center flex-wrap mt-6">
+        <div className="formContainer">
             <form onSubmit={handleSubmit}>
-                <div className="flex justify-between">
+                <div>
                     <Input
                         value={inputs.up}
                         label="Верхнее"
-                        onChange={(e) => handleChange(e)}
+                        onChange={handleChange}
                         name="up"
                     />
                     <Input
@@ -53,8 +53,9 @@ function FormComponent(props: Props) {
                         name="heartRate"
                     />
                 </div>
-
-                <Button onClick={handleSubmit} label="OK" key={crypto.randomUUID()} />
+                <div className="flex justify-center mt-2">
+                    <Button onClick={handleSubmit} label="OK" />
+                </div>
             </form>
         </div>
     );

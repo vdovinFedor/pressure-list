@@ -6,8 +6,8 @@
     font-family: inherit;
     border-radius: 8px;
 }
-.label {
-    font-size: 2em;
+.p {
+    font-size: 18px;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
