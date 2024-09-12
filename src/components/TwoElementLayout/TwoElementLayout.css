@@ -1,0 +1,12 @@
+.layout-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.left-component {
+    flex: 0 0 30%;
+}
+
+.right-component {
+    flex: 1;
+}

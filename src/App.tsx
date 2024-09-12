@@ -7,6 +7,7 @@ import FormContainer from './containers/FormContainer';
 import store from './store';
 import ListContainer from './containers/ListContainer';
 import Header from './components/Header';
+import TwoElementLayout from './components/TwoElementLayout';
 
 const queryClient = new QueryClient();
 /* <div className="flex justify-center mt-6"> */
@@ -18,12 +19,10 @@ function App() {
             <Provider store={store}>
                 <div className="App">
                     <Header />
-
-                    <div className="flex justify-around">
-                        <FormContainer />
-                        <ListContainer />
-                    </div>
-
+                    <TwoElementLayout
+                        leftComponent={<FormContainer />}
+                        rightComponent={<ListContainer />}
+                    />
                 </div>
             </Provider>
         </QueryClientProvider>

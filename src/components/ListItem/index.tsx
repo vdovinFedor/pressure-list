@@ -4,7 +4,23 @@ import { type TLine } from '../../types';
 import Button from '../Button';
 
 type Props = TLine & {
-  onDelete: (lineId: string) => void;
+  onDelete: (_lineId: string) => void;
+};
+const formatDate = (dateString: string) => {
+    const options: Intl.DateTimeFormatOptions = {
+        day: 'numeric',
+        month: 'long',
+        weekday: 'long',
+    };
+    const date = new Date(dateString);
+    const formattedDate = date.toLocaleDateString('ru-RU', options);
+
+    const time = date.toLocaleTimeString('ru-RU', {
+        hour: '2-digit',
+        minute: '2-digit',
+    });
+
+    return `${formattedDate.split(', ').reverse().join(', ')}, ${time}`;
 };
 
 function ListItem(props: Props) {
@@ -20,15 +36,13 @@ function ListItem(props: Props) {
     return (
         <Fragment key={lineId}>
             <div
-                key={crypto.randomUUID()}
                 className={styles.date}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
-                {date}
+                {formatDate(date)}
             </div>
             <div
-                key={crypto.randomUUID()}
                 className={styles.rightSide}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}

@@ -13,20 +13,11 @@ const addData = (state: State, action: ActionType) => {
     console.warn(action);
     return {
         ...state,
-        data: [...state.data, action.payload],
+        data: [action.payload, ...state.data],
     };
 };
 
-const deleteData = (state: State, action: ActionType) => {
-    // eslint-disable-next-line no-console
-    console.warn(action);
-    return {
-        ...state,
-        data: [...state.data, action.payload],
-    };
-};
-
-// eslint-disable-next-line default-param-last
+// eslint-disable-next-line default-param-last,func-names
 export default function (state: State = initialState, action: ActionType) {
     switch (action.type) {
         case INIT:
