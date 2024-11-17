@@ -7,6 +7,8 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import store from './store';
 import Header from './components/Header';
 import PressureMeasurements from './components/PressureMeasurements';
+import Diary from './components/Diary';
+import HomePage from './components/HomePage';
 
 const queryClient = new QueryClient();
 /* <div className="flex justify-center mt-6"> */
@@ -20,7 +22,9 @@ function App() {
                     <div className="App">
                         <Header />
                         <Routes>
+                            <Route path="/" element={<HomePage />} />
                             <Route path="/measurements" element={<PressureMeasurements />} />
+                            <Route path="/diary" element={<Diary />} />
                         </Routes>
                     </div>
                 </Provider>

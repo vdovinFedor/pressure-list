@@ -39,6 +39,7 @@ const PressureMeasurements: React.FC = () => {
                         }),
                     );
                     setTransformedData(prepareMeasurements);
+                    console.log(prepareMeasurements, 'prepareMeasurements');
                     console.log('Fetched data:', snapshot.val());
                 } else {
                     console.log('No data available');
