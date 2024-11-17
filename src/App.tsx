@@ -1,13 +1,12 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import FormContainer from './containers/FormContainer';
 
 import store from './store';
-import ListContainer from './containers/ListContainer';
 import Header from './components/Header';
-import TwoElementLayout from './components/TwoElementLayout';
+import PressureMeasurements from './components/PressureMeasurements';
 
 const queryClient = new QueryClient();
 /* <div className="flex justify-center mt-6"> */
@@ -15,17 +14,18 @@ const queryClient = new QueryClient();
 /* </div> */
 function App() {
     return (
-        <QueryClientProvider client={queryClient}>
-            <Provider store={store}>
-                <div className="App">
-                    <Header />
-                    <TwoElementLayout
-                        leftComponent={<FormContainer />}
-                        rightComponent={<ListContainer />}
-                    />
-                </div>
-            </Provider>
-        </QueryClientProvider>
+        <Router>
+            <QueryClientProvider client={queryClient}>
+                <Provider store={store}>
+                    <div className="App">
+                        <Header />
+                        <Routes>
+                            <Route path="/measurements" element={<PressureMeasurements />} />
+                        </Routes>
+                    </div>
+                </Provider>
+            </QueryClientProvider>
+        </Router>
     );
 }
 
