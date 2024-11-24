@@ -4,7 +4,6 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid';
 function PressureTable(props: any) {
     const { data } = props;
     const [rows, setRows] = useState([]);
-    console.log('124');
     useEffect(() => setRows(data), [data]);
 
     const columns: GridColDef[] = [

@@ -1,6 +1,7 @@
 import React from 'react';
 import Calendar from 'react-calendar';
 import './CalendarComponent.css';
+import convertDate from '../../helpers/convertDate';
 
 function CalendarComponent({
     notes,
@@ -11,17 +12,19 @@ function CalendarComponent({
   onDayClick: (date: string) => void;
 }) {
     const getTileClassName = ({ date }: { date: Date }) => {
-        const formattedDate = date.toISOString().split('T')[0];
+        const formattedDate = convertDate(date);
         const hasEntry = notes.some((entry) => entry.date === formattedDate);
 
-        return hasEntry ? 'highlighted-day' : ''; // Добавьте класс для дней с записями
+        return hasEntry ? 'highlighted-day' : '';
     };
 
     return (
-        <Calendar
-            onClickDay={(value) => onDayClick(value.toISOString().split('T')[0])}
-            tileClassName={getTileClassName}
-        />
+        <div className="calendarContainer">
+            <Calendar
+                onClickDay={(value) => onDayClick(convertDate(value))}
+                tileClassName={getTileClassName}
+            />
+        </div>
     );
 }
 

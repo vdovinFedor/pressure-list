@@ -3,10 +3,26 @@
 @tailwind utilities;
 
 
+:root {
+  --color-bg: #E0E0E0;
+  --color-bg-secondary: #7C7A7A;
+  --color-bg-alternative: #E0E0E0;
+  --color-bg-light: #EFF6E0;
+  --color-bg-light-new: #EEF5DB;
+  --color-text: #E0E0E0;
+  --color-text-secondary: #A0A0A0;
+  --color-accent: #BB86FC;
+  --color-success: #03DAC6;
+  --color-error: #CF6679;
+  --color-border: #292929;
+  --color-shadow: rgba(0, 0, 0, 0.6);
+}
+
+
 body {
   margin-left: 1rem;
   margin-right: 1rem;
-  background-color: #F5F5F5;
+  background-color: var(--color-bg-alternative);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

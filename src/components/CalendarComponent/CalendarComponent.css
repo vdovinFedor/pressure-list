@@ -1,4 +1,13 @@
 .highlighted-day {
-    background-color: #ffeeba;
+    /*background-color: #C7EFCF #ffeeba;*/
+    background-color: #FF5D73;
     border-radius: 30%;
+}
+/*.calendarContainer {*/
+/*    background-color: var(--color-bg-light);*/
+/*}*/
+
+.react-calendar{
+    border-radius: 20px;
+    box-shadow: 0 0 9px 10px var(--color-shadow);
 }

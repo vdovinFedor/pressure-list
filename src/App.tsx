@@ -22,9 +22,9 @@ function App() {
                     <div className="App">
                         <Header />
                         <Routes>
-                            <Route path="/" element={<HomePage />} />
-                            <Route path="/measurements" element={<PressureMeasurements />} />
-                            <Route path="/diary" element={<Diary />} />
+                            <Route path="/:userUuid" element={<HomePage />} />
+                            <Route path="/:userUuid/measurements" element={<PressureMeasurements />} />
+                            <Route path="/:userUuid/diary" element={<Diary />} />
                         </Routes>
                     </div>
                 </Provider>

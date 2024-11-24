@@ -1,0 +1,8 @@
+.modal-container{
+    position: relative;
+}
+.modal-x-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
