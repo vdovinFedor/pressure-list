@@ -1,11 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 // eslint-disable-next-line react/function-component-definition
 const HomePage: React.FC = () => {
     const navigate = useNavigate();
-    const goToDiary = () => navigate('/diary');
-    const goToMeasurements = () => navigate('/measurements');
+    const { userUuid } = useParams<{ userUuid: string }>();
+    const goToDiary = () => navigate(`/${userUuid}/diary`);
+    const goToMeasurements = () => navigate(`/${userUuid}/measurements`);
 
     return (
         <div className="flex flex-col items-center mt-8">
