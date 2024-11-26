@@ -7,7 +7,7 @@ function CalendarComponent({
     notes,
     onDayClick,
 }: {
-  notes: Array<{ date: string; mood: number; note: string }>;
+  notes: Array<{ date: string; rate: number; note: string }>;
   // eslint-disable-next-line no-unused-vars
   onDayClick: (date: string) => void;
 }) {

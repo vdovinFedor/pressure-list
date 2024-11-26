@@ -15,16 +15,33 @@ const queryClient = new QueryClient();
 /*    <h1 className="text-3xl font-bold underline">test</h1> */
 /* </div> */
 function App() {
+    const homePage = (
+        <>
+            <Header title="HomePage" />
+            <HomePage />
+        </>
+    );
+    const pressureMeasurementsPage = (
+        <>
+            <Header title="Давление" returnButton />
+            <PressureMeasurements />
+        </>
+    );
+    const diaryPage = (
+        <>
+            <Header title="Дневник" returnButton />
+            <Diary />
+        </>
+    );
     return (
         <Router>
             <QueryClientProvider client={queryClient}>
                 <Provider store={store}>
                     <div className="App">
-                        <Header />
                         <Routes>
-                            <Route path="/:userUuid" element={<HomePage />} />
-                            <Route path="/:userUuid/measurements" element={<PressureMeasurements />} />
-                            <Route path="/:userUuid/diary" element={<Diary />} />
+                            <Route path="/:userUuid" element={homePage} />
+                            <Route path="/:userUuid/measurements" element={pressureMeasurementsPage} />
+                            <Route path="/:userUuid/diary" element={diaryPage} />
                         </Routes>
                     </div>
                 </Provider>
