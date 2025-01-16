@@ -5,6 +5,13 @@ export type TLine = {
     date: string,
     lineId: string,
 }
+export interface TDiaryNote {
+    date: string;
+    rate: number;
+    note: string
+}
+
+export type TDairyNotes = Array<TDiaryNote>
 
 export type TData = Array<TLine>;
 

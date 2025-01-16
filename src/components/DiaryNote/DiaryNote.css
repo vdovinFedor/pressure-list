@@ -1,0 +1,29 @@
+.note-container {
+    cursor: pointer;
+    padding: 10px; 
+    margin-bottom: 10px;
+    width: 100%; 
+    max-width: calc(100% - 20px);
+    border-radius: 10px;
+    background-color: white;
+    overflow: hidden;
+    display: block;
+    box-sizing: border-box; 
+}
+
+.note-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.note-text {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    display: block; 
+    max-width: calc(100% - 20px);
+}
+@media (max-width: 768px) {
+    
+}

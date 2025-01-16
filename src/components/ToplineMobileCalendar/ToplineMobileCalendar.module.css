@@ -1,0 +1,27 @@
+.calendarStrip {
+  margin-top: 5px;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100%;
+  scrollbar-width: none;
+}
+
+.calendar-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.dateWrapper {
+  display: flex;
+  gap: 10px
+}
+
+.dateItem {
+  background-color: white;
+  display: inline-flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+}

@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import './DiaryModalComponent.css';
 
 import CloseIcon from '@mui/icons-material/Close';
+import { TDairyNotes } from '../../types';
 
 Modal.setAppElement('#root');
 
@@ -32,7 +33,7 @@ const customStyles = {
 function DiaryModalComponent({
     notes, onClose, selectedDate, isModalOpen,
 }: {
-    notes: Array<{ date: string; rate: number; note: string }>,
+    notes: TDairyNotes,
     onClose: ()=>void,
     isModalOpen: boolean
     selectedDate: string | null,
