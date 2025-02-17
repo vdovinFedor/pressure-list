@@ -4,18 +4,7 @@
     width: 100%;
     max-width: 100%;
     padding: 10px;
-    /* padding: 10px;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 30px;
-    margin-bottom: 2rem; */
 }
-
-/* .diary-notes-container {
-    width: 100%;
-    max-width: 100vw; 
-    box-sizing: border-box;
-} */
 
 .diary-calendar {
     display: block;

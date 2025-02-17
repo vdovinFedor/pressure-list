@@ -15,6 +15,7 @@ const PressureMeasurements: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleDayClick = (date: string) => {
+        console.log(date, 'datedate');
         setSelectedDate(date);
         setIsModalOpen(true);
     };
@@ -37,9 +38,12 @@ const PressureMeasurements: React.FC = () => {
             <p>No data</p>
         );
     }
+    console.log(diaryNotes);
     return (
         <>
-            <ToplineMobileCalendar />
+            <ToplineMobileCalendar
+                entries={diaryNotes}
+            />
             <div className="diary-content">
                 <div className="diary-calendar">
                     <CalendarComponent notes={diaryNotes} onDayClick={handleDayClick} />

@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import parceDiaryDate from '../../helpers/parceDiaryDate';
+import { TDairyNotes } from '../../types';
 import styles from './ToplineMobileCalendar.module.css';
 
 interface ToplineMobileCalendarProps {
     // onDateSelect: (date: string) => void;
     daysBack?: number;
+    entries: TDairyNotes,
 }
 
 type TState = {
@@ -14,10 +17,23 @@ type TState = {
 
 function ToplineMobileCalendar(props: ToplineMobileCalendarProps) {
     const [dates, setDates] = useState<TState[]>([]);
-    const { /* onDateSelect = {}, */ daysBack = 30 /* entries */ } = props;
-
+    const { /* onDateSelect = {}, */ daysBack = 30, entries = [] } = props;
+    console.log(entries);
     useEffect(() => {
         const today = new Date();
+        console.log(entries, 'qwdqwqd');
+
+        const test = entries.reverse().map((entry) => {
+            const {
+                formattedDate, weekday, isoDate,
+            } = parceDiaryDate(entry.date);
+            return {
+                formattedDate,
+                weekday,
+                isoDate,
+            };
+        });
+        console.log(test, 'rwrw');
         const datesArray = [];
         // eslint-disable-next-line no-plusplus
         for (let i = -daysBack; i <= 0; i++) {
@@ -41,20 +57,23 @@ function ToplineMobileCalendar(props: ToplineMobileCalendarProps) {
         setDates(datesArray);
     }, []);
 
-    console.log(dates, 'dates');
     return (
         <div className={styles.calendarStrip}>
             <div className={styles.dateWrapper}>
-                {dates.map((date) => (
-                    <div className={styles.dateItem}>
-                        <div>
-                            {date.weekday.toUpperCase()}
+                {dates.map((date) => {
+                    const hasEntries = !!entries.find((entry) => entry.date === date.formattedDate);
+                    console.log(hasEntries, 'hasEntries');
+                    return (
+                        <div className={styles.dateItem}>
+                            <div>
+                                {date.weekday.toUpperCase()}
+                            </div>
+                            <div>
+                                {date.formattedDate}
+                            </div>
                         </div>
-                        <div>
-                            {date.formattedDate}
-                        </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
         </div>
     );
